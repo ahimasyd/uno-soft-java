@@ -2,7 +2,6 @@ package org.example;
 
 import org.example.utils.Sorter;
 
-import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.time.Duration;
@@ -14,7 +13,7 @@ public class Main {
         Instant start = Instant.now();
 
         if (args.length < 1) {
-            System.out.println("Specify .txt.gz file path as 1st argument");
+            System.out.println("Specify text file path as 1st argument");
             return;
         }
 

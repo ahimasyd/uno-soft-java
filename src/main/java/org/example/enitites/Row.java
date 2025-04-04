@@ -15,12 +15,7 @@ public record Row(List<String> values) {
             throw new BadLineException();
         }
 
-        List<String> values = Arrays.stream(line.split(";"))
-                .peek(x -> {
-                    if (!x.startsWith("\"") || !x.endsWith("\"")) {
-                        throw new BadLineException();
-                    }
-                })
+        List<String> values = Arrays.stream(line.split(";", -1))
                 .map(x -> StringUtils.strip(x, "\""))
                 .peek(x -> {
                     if (x.contains("\"")) {

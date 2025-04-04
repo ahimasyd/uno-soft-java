@@ -10,7 +10,6 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
-import java.util.zip.GZIPInputStream;
 
 @UtilityClass
 public class Sorter {
@@ -31,7 +30,7 @@ public class Sorter {
         // Хэш-таблица для каждой колонки файла. Значение в колонке -> Группа
         List<Index> indexes = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new GZIPInputStream(Files.newInputStream(filepath))))) {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(Files.newInputStream(filepath)))) {
             while (reader.ready()) {
                 // Строка файла -> Row
                 String line = reader.readLine();
